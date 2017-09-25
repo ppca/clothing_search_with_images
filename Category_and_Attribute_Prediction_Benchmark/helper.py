@@ -38,11 +38,11 @@ def path_to_tensor(img_path: str):
     # convert 3D tensor to 4D tensor with shape (1, 224, 224, 3) and return 4D tensor
     return np.expand_dims(x, axis=0)
 
-def paths_to_tensor(img_paths: list[str]):
+def paths_to_tensor(img_paths: list):
     list_of_tensors = [path_to_tensor(img_path) for img_path in tqdm(img_paths)]
     return np.vstack(list_of_tensors)
 
-def train_val_test_split(cloth_files: list[str], cloth_targets: list[int], ratio: float = 0.8):
+def train_val_test_split(cloth_files: list, cloth_targets: list, ratio: float = 0.8):
     """return training, validation and test data
        : param
        cloth_files: list of all clothing files
