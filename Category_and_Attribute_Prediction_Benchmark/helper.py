@@ -57,12 +57,12 @@ def train_val_test_split(cloth_files: list, cloth_targets: list, ratio: float = 
     train_targets = []
     val_targets = []
     test_targets = []
-    chances = np.random.uniform(0, 1, size = len(cloth_files))
+    chances = np.random.sample(size = len(cloth_files))
     for idx, p in enumerate(chances):
-        if p > 1 - ratio:
+        if p > ratio:
             test_files.append(cloth_files[idx])
             test_targets.append(cloth_targets[idx])
-        elif p > (1 - ratio)**2:
+        elif p > ratio**2:
             val_files.append(cloth_files[idx])
             val_targets.append(cloth_targets[idx])
         else:
