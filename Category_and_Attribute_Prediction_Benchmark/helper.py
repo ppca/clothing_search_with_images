@@ -45,7 +45,7 @@ def load_dataset(image_folder_path, label_txt):
                     images.append(image_folder_path + sub_folder + '/'+file)
                     targets.append(img_label_map[img_name])
     cloth_files = np.array(images)
-    cloth_targets = np_utils.to_categorical(np.array(targets), np.max(targets) + 1)
+    cloth_targets = np_utils.to_categorical(np.array(targets), np.max(targets))
     return cloth_files, cloth_targets
 
 def path_to_tensor(img_path):
